@@ -80,6 +80,9 @@ def notification():
             notification.completed_date = datetime.utcnow()
             notification.status = 'Notified {} attendees'.format(len(attendees))
             db.session.commit()
+
+            message = Message(str(notification.id))
+            queue_client.send_messages(message)
             # TODO Call servicebus queue_client to enqueue notification ID
 
             #################################################
