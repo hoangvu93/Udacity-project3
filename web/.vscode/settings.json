@@ -30,6 +30,6 @@
         "venv.bak{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/d26e1ef3-7e6b-4676-bc24-4aaf581002ed/microsoft.web/sites/subscriptions/d26e1ef3-7e6b-4676-bc24-4aaf581002ed/resourceGroups/project3-mr/providers/Microsoft.Web/sites/project3-mr",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/d26e1ef3-7e6b-4676-bc24-4aaf581002ed/microsoft.web/sites/subscriptions/d26e1ef3-7e6b-4676-bc24-4aaf581002ed/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/project3-mr3"
 }
