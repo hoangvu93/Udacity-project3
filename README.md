@@ -61,13 +61,15 @@ You will need to install the following locally:
 ## Monthly Cost Analysis
 Complete a month cost analysis of each Azure resource to give an estimate total cost using the table below:
 
-| Azure Resource | Service Tier | Monthly Cost |
-| ------------ | ------------ | ------------ |
-| *Azure Postgres Database* | Single Server - Basic - 1 vCore - 5 GB | $3.45 |
-| *Azure Service Bus*   | Free |
-| *Azure Function App* | Free |
-| *Azure Web App* | Free | Free |
-| *Total* | | $3.45 |
+| Azure Resource   | Service Tier | Monthly Cost |
+| ---------------- | ------------ | -------------- |
+| Azure PostgreSQL |   Basic      |   $4.49       |
+| Azure Service Bus|   Free      |   $0.01       |
+| Azure App Service|   Free (F1) |   $0.15       |
+| Azure Storage    |   Basic      |   $0.12       |
+The app service includes the web app and the function app.
 ## Architecture Explanation
 
-Because this app have sending email which is good to place into background process, we need to split the sending email and the web app itself. The web app only do listing and sending queue, the Free Tier is enough for doing this since the web trafic not really high. The cost will move to background process, it will depend how much we sending the email, how much the attendee, if the attendee quite many, that will affect to execution time which is increase the monthly cost. But, the Azure Function App is quite cheap and we not suffer the web app to have more high resource.
+The azure web app was already built , I only to change the environment within config.py and refactor the notification flow within routers.py. Everything else was already configured. The costs are reasonable, outside of the PostgreSQL database, which is by far the most expensive part of the architecture. Creating a service bus namespace to handle the notifications is a good idea, but if it could all be saved to a less expensive database that would be the most straightforward way to lower costs. 
+
+Other than changing up the database, everthing else is available at a reasonable cost.
